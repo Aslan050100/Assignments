@@ -7,12 +7,13 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = mysqli_connect('localhost', 'aibol', '1234', 'firstAssignment');
 
+echo "hello";
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
+  $username = mysqli_real_escape_string($db, $_POST['username']); 
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
@@ -23,7 +24,7 @@ if (isset($_POST['reg_user'])) {
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
-	array_push($errors, "The two passwords do not match");
+    array_push($errors, "The two passwords do not match");
   }
 
   // first check the database to make sure 
